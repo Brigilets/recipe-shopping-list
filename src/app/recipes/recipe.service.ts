@@ -1,19 +1,35 @@
 import { EventEmitter } from '@angular/core';
 import { Recipe } from './recipe.model';
+import { Ingredient } from '../shared/ingredient.model';
 
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
     new Recipe(
-      'Test Recipe',
-      'Test',
-      'https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1192&q=80'
+      'Avocado toast',
+      'Breakfast for champions or healthy brunch!',
+      'https://images.unsplash.com/photo-1525351484163-7529414344d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80',
+      [
+        new Ingredient('Toast', 2),
+        new Ingredient('Avocado ', 1),
+        new Ingredient('Egg', 2),
+      ]
     ),
     new Recipe(
-      'Test Recipe 1',
-      'Test 1',
-      'https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1192&q=80'
+      'Classic cheeseburger',
+      'Simplicity is key!',
+      'https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80',
+      [
+        new Ingredient('Sesamy bun', 1),
+        new Ingredient('Ground beef', 200),
+        new Ingredient('Vintage cheddar', 1),
+        new Ingredient('Lettuce', 1),
+        new Ingredient('Burger Sauce', 1),
+        new Ingredient('Tomato', 0.2),
+        new Ingredient('Onion', 0.1),
+        new Ingredient('pickles', 1),
+      ]
     ),
   ];
 

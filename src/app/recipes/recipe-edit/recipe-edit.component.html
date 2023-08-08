@@ -1,1 +1,78 @@
-<p>recipe-edit works!</p>
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              formControlName="name"
+              type="text"
+              class="form-control"
+              id="name"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image Url</label>
+            <input
+              formControlName="imagePath"
+              type="text"
+              class="form-control"
+              id="name"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img src="" class="image-responsive" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              formControlName="description"
+              type="text"
+              class="form-control"
+              id="name"
+              rows="6"
+            ></textarea>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <h4>New Ingredient</h4>
+              <div class="row">
+                <div class="col-xs-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="ex: onion"
+                  />
+                </div>
+                <div class="col-xs-2">
+                  <input type="number" class="form-control" placeholder="Qty" />
+                </div>
+                <div class="col-xs-2 my-2">
+                  <button type="button" class="btn btn-danger">X</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

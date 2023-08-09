@@ -50,6 +50,7 @@
               type="text"
               class="form-control"
               id="imagePath"
+              #imagePath
             />
             <span
               *ngIf="
@@ -70,7 +71,7 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img src="" class="image-responsive" />
+          <img [src]="imagePath.value" class="image-responsive preview-img" />
         </div>
       </div>
       <div class="row">
@@ -120,12 +121,19 @@
                   <input
                     type="number"
                     formControlName="amount"
+                    min="1"
                     class="form-control"
                     placeholder="Qty"
                   />
                 </div>
                 <div class="col-xs-2">
-                  <button type="button" class="btn btn-danger">X</button>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="onDeleteIngredient(i)"
+                  >
+                    X
+                  </button>
                 </div>
               </div>
               <hr />

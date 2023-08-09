@@ -2,3 +2,7 @@ input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
   border: 1px solid rgb(213, 121, 121);
 }
+.preview-img {
+  max-width: 20em;
+  max-height: 20em;
+}

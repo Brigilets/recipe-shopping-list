@@ -3,7 +3,13 @@
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success">Save</button>
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!recipeForm.valid"
+          >
+            Save
+          </button>
           <button type="button" class="btn btn-danger">Cancel</button>
         </div>
       </div>
@@ -17,6 +23,19 @@
               class="form-control"
               id="name"
             />
+            <span
+              *ngIf="
+                !recipeForm.get('name').valid && recipeForm.get('name').touched
+              "
+              [ngStyle]="{
+                color:
+                  !recipeForm.get('name').valid &&
+                  recipeForm.get('name').touched
+                    ? 'rgb(185, 84, 84)'
+                    : ''
+              }"
+              >Recipe must have a name</span
+            >
           </div>
         </div>
       </div>
@@ -28,8 +47,22 @@
               formControlName="imagePath"
               type="text"
               class="form-control"
-              id="name"
+              id="imagePath"
             />
+            <span
+              *ngIf="
+                !recipeForm.get('imagePath').valid &&
+                recipeForm.get('imagePath').touched
+              "
+              [ngStyle]="{
+                color:
+                  !recipeForm.get('imagePath').valid &&
+                  recipeForm.get('imagePath').touched
+                    ? 'rgb(185, 84, 84)'
+                    : ''
+              }"
+              >Image URL is required</span
+            >
           </div>
         </div>
       </div>
@@ -49,6 +82,20 @@
               id="name"
               rows="6"
             ></textarea>
+            <span
+              *ngIf="
+                !recipeForm.get('description').valid &&
+                recipeForm.get('description').touched
+              "
+              [ngStyle]="{
+                color:
+                  !recipeForm.get('description').valid &&
+                  recipeForm.get('description').touched
+                    ? 'rgb(185, 84, 84)'
+                    : ''
+              }"
+              >Description is required</span
+            >
           </div>
 
           <div class="row">

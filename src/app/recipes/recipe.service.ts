@@ -57,4 +57,8 @@ export class RecipeService {
   updateRecipe(newRecipe: Recipe, index: number) {
     this.recipes[index] = newRecipe;
   }
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
+  }
 }

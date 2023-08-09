@@ -3,11 +3,12 @@ import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { Ingredient } from 'src/app/shared/ingredient.model';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
-  styleUrls:['./recipe-edit.component.css']
+  styleUrls: ['./recipe-edit.component.css'],
 })
 export class RecipeEditComponent implements OnInit {
   id: number;
@@ -29,7 +30,18 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onSubmit() {
+    // const newRecipe = new Recipe(
+    //   this.recipeForm.value['name'],
+    //   this.recipeForm.value['imagePath'],
+    //   this.recipeForm.value['description'],
+    //   this.recipeForm.value['ingredients']
+    // );
     console.log(this.recipeForm);
+    if (this.editMode) {
+      this.recipesService.updateRecipe(this.recipeForm.value, this.id);
+    } else {
+      this.recipesService.addRecipe(this.recipeForm.value);
+    }
   }
 
   onAddIngredient() {

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Recipe } from '../recipes/recipe.model';
 import { RecipeService } from '../recipes/recipe.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -14,13 +15,9 @@ export class DataStorageService {
 
   addRecipes() {
     const recipes = this.recipesService.getRecipes();
-    this.http
-      .put(
-        'https://recipe-shopping-app-fafdb-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
-        recipes
-      )
-      .subscribe((response) => {
-        console.log('res from add recipes', response);
-      });
+    const recipesUrl = environment.apiUrl;
+    this.http.put(recipesUrl, recipes).subscribe((response) => {
+      console.log('res from add recipes', response);
+    });
   }
 }

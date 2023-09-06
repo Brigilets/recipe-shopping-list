@@ -10,33 +10,6 @@ export class RecipeService {
 
   recipesChanged = new Subject<Recipe[]>();
 
-  // private recipes: Recipe[] = [
-  //   new Recipe(
-  //     'Avocado toast',
-  //     'Breakfast for champions or healthy brunch!',
-  //     'https://images.unsplash.com/photo-1525351484163-7529414344d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80',
-  //     [
-  //       new Ingredient('Toast', 2),
-  //       new Ingredient('Avocado ', 1),
-  //       new Ingredient('Egg', 2),
-  //     ]
-  //   ),
-  //   new Recipe(
-  //     'Classic cheeseburger',
-  //     'Simplicity is key!',
-  //     'https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80',
-  //     [
-  //       new Ingredient('Sesamy bun', 1),
-  //       new Ingredient('Ground beef', 200),
-  //       new Ingredient('Vintage cheddar', 1),
-  //       new Ingredient('Lettuce', 1),
-  //       new Ingredient('Burger Sauce', 1),
-  //       new Ingredient('Tomato', 0.2),
-  //       new Ingredient('Onion', 0.1),
-  //       new Ingredient('pickles', 1),
-  //     ]
-  //   ),
-  // ];
   private recipes: Recipe[] = [];
 
   setRecipes(recipes: Recipe[]) {
@@ -60,9 +33,11 @@ export class RecipeService {
     this.recipes.push(recipe);
     this.recipesChanged.next(this.recipes.slice());
   }
+
   updateRecipe(newRecipe: Recipe, index: number) {
     this.recipes[index] = newRecipe;
   }
+
   deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
     this.recipesChanged.next(this.recipes.slice());
